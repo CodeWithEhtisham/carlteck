@@ -1,0 +1,46 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Connect to AWS instance') {
+            steps {
+                sh 'ssh -i /home/hamza/Downloads/carl-website.pem ec2-user@your-ec2-public-dns.amazonaws.com'
+            }
+        }
+        
+        stage('Checkout') {
+            steps {
+                git 'git@github.com:youraccount/yourrepo.git'
+            }
+        }
+        
+        stage('Copy Config Files') {
+            steps {
+                sh """
+                scp -i /path/to/key.pem path/to/your/nginx.conf 
+                ec2-user@your-ec2-public-dns.amazonaws.com:/etc/nginx/nginx.conf
+                scp -i /path/to/key.pem path/to/your/gunicorn.conf 
+                ec2-user@your-ec2-public-dns.amazonaws.com:/etc/gunicorn/gunicorn.conf
+                """
+            }
+        }
+
+        stage('Run Nginx') {
+            steps {
+                sh """ 
+                nohup sudo service nginx start
+                """
+            }
+        }
+
+        stage('Run Gunicorn') {
+            steps {
+                dir("yourdjangoapp"){
+                  sh """
+                  gunicorn --bind 0.0.0.0:8000 yourappname.wsgi:application
+                  """
+                }
+            }
+        }
+    }
+}
