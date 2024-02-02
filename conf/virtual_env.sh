@@ -15,3 +15,4 @@ echo $PWD
 
 # Activating the virtual environment
 source ./env/bin/activate
+echo "Virtual environment activated."

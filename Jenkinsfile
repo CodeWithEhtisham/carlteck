@@ -21,14 +21,14 @@ pipeline {
 
         stage('Install requirements') {
             steps {
-                sh 'source ./env/bin/activate'
-                sh 'python3.8 -m pip install -r ./requirements.txt --no-cache-dir'
+                // sh 'source ./env/bin/activate'
+                sh 'python3.8 -m pip install -r ./requirements.txt'
             }
         }
 
         stage('Django migrate') {
             steps {
-                sh 'source ./env/bin/activate'
+                // sh 'source ./env/bin/activate'
                 sh 'python3.8 ./manage.py makemigrations'
                 sh 'python3.8 ./manage.py migrate'
             }
@@ -36,7 +36,7 @@ pipeline {
 
         stage('Gunicorn setup') {
             steps {
-                sh 'source ./env/bin/activate'
+                // sh 'source ./env/bin/activate'
                 sh './conf/gunicorn.sh'
                 sh 'sudo systemctl status carlteck'
             }
