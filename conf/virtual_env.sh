@@ -21,6 +21,7 @@ then
 else
     echo "Virtual environment already exists."
 fi
+echo $PWD
 
 # Activating the virtual environment
-source env/bin/activate
+source ./env/bin/activate
