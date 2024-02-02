@@ -1,6 +1,6 @@
 server {
     server_name carlteck.com;
-
+    listen 80;
     location = /favicon.ico { access_log off; log_not_found off; }
     location /assets/ {
         root /var/lib/jenkins/workspace/carlteck;
@@ -15,7 +15,7 @@ server {
 
 server {
     server_name www.carlteck.com;
-
+    listen 80;
     location = /favicon.ico { access_log off; log_not_found off; }
     location /assets/ {
         root /var/lib/jenkins/workspace/carlteck;
