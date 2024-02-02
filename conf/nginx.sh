@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Set permissions
+sudo chmod 710 /var/lib/jenkins/workspace/carlteck
+
 # Check for sites-available
 if [ ! -d "/etc/nginx/sites-available" ]
 then
