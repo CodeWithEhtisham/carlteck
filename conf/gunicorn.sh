@@ -8,3 +8,5 @@ sudo cp -rf ./conf/carlteck.service /etc/systemd/system/carlteck.service
 
 # Start / Enable the service
 sudo systemctl enable --now carlteck
+sudo systemctl restart carlteck
+sudo systemctl status carlteck
