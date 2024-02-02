@@ -6,8 +6,8 @@ After=network.target
 [Service]
 User=ubuntu
 Group=www-data
-WorkingDirectory=/home/ubuntu/carl-website
-ExecStart=/home/ubuntu/carl-website/env/bin/gunicorn \
+WorkingDirectory=/var/lib/jenkins/workspace/carlteck
+ExecStart=/var/lib/jenkins/workspace/carlteck/env/bin/gunicorn \
           --access-logfile - \
           --workers 3 \
           --bind unix:/run/gunicorn.sock \
