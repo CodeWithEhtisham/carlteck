@@ -7,4 +7,4 @@ sudo cp -rf ./conf/carlteck.socket /etc/systemd/system/carlteck.socket
 sudo cp -rf ./conf/carlteck.service /etc/systemd/system/carlteck.service
 
 # Start / Enable the service
-sudo systemctl enable --now carlteck.socket
+sudo systemctl enable --now carlteck
