@@ -12,4 +12,10 @@ else
 fi
 
 # Make the link to activate nginx configuration
-sudo ln -s /etc/nginx/sites-available/carlteck /etc/nginx/sites-enabled/
+if [ ! "/etc/nginx/sites-enabled/carlteck" ]
+then
+    sudo ln -s /etc/nginx/sites-available/carlteck /etc/nginx/sites-enabled/
+else
+    sudo rm /etc/nginx/sites-enabled/carlteck
+    sudo ln -s /etc/nginx/sites-available/carlteck /etc/nginx/sites-enabled/
+fi
