@@ -16,7 +16,7 @@ then
 
 
     # Creating a virtual environment named 'env'
-    virtualenv env
+    python3.8 -m virtualenv env
     echo "Virtual environment created."
 else
     echo "Virtual environment already exists."
