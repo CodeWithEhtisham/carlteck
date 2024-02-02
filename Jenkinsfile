@@ -35,7 +35,7 @@ pipeline {
         stage('Gunicorn setup') {
             steps {
                 sh './conf/gunicorn.sh'
-                sh 'sudo systemctl status gunicorn'
+                sh 'sudo systemctl status carlteck'
             }
         }
 
