@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Packages upgrade') {
             steps {
-                sh 'sudo apt update && sudo apt install python3-pip nginx curl'
+                sh 'sudo apt update && sudo apt install python3-pip nginx curl -y'
             }
         }
 
