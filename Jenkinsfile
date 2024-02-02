@@ -4,6 +4,11 @@ pipeline {
     stages {
         stage('Packages upgrade') {
             steps {
+                sh """
+                sudo chmod +x ./conf/gunicorn.sh
+                sudo chmod +x ./conf/nginx.sh
+                sudo chmod +x ./conf/virtual_env.sh
+                """
                 sh 'sudo apt update && sudo apt install python3-pip nginx curl -y'
             }
         }
