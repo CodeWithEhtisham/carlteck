@@ -7,16 +7,16 @@ cd ~
 sudo apt update && sudo apt install python3-pip nginx curl
 
 # Check the project root directory
-if [ ! -d "carlteck" ]
-then
-    echo "CARL directory does not exist. Creating one."
-    git clone git@github.com:CodeWithEhtisham/carlteck.git && cd carlteck
-    echo "Directory created: $PWD"
-else
-    cd carlteck
-    echo "Directory exists: $PWD"
-    git pull
-fi
+#if [ ! -d "carlteck" ]
+#then
+#    echo "CARL directory does not exist. Creating one."
+#    git clone git@github.com:CodeWithEhtisham/carlteck.git && cd carlteck
+#    echo "Directory created: $PWD"
+#else
+#    cd carlteck
+#    echo "Directory exists: $PWD"
+#    git pull
+#fi
 
 # Checking if virtual environment exists
 if [ ! -d "env" ]
@@ -49,10 +49,8 @@ pip3 install -r ./requirements.txt
 ./manage.py makemigrations
 ./manage.py migrate
 
-sudo ufw allow 8000
-
 # Come out of the virtual environment
-deactivate
+#deactivate
 
 # Check for the socket file
 if [ ! "/etc/systemd/system/gunicorn.socket" ]
