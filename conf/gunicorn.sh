@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Check for the socket file
-cp -rf ./conf/gunicorn.socket /etc/systemd/system/gunicorn.socket
+sudo cp -rf ./conf/carlteck.socket /etc/systemd/system/carlteck.socket
 
 # Check for the service file
-cp -rf ./conf/gunicorn.service /etc/systemd/system/gunicorn.service
+sudo cp -rf ./conf/carlteck.service /etc/systemd/system/carlteck.service
 
 # Start / Enable the service
-sudo systemctl enable --now gunicorn.socket
+sudo systemctl enable --now carlteck.socket

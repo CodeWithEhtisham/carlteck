@@ -55,23 +55,23 @@ pip3 install -r ./requirements.txt
 # Check for the socket file
 if [ ! "/etc/systemd/system/gunicorn.socket" ]
 then
-    cp ./conf/gunicorn.socket /etc/systemd/system/gunicorn.socket
+    cp ./conf/carlteck.socket /etc/systemd/system/carlteck.socket
 else
-    sudo rm /etc/systemd/system/gunicorn.socket
-    cp ./conf/gunicorn.socket /etc/systemd/system/gunicorn.socket
+    sudo rm /etc/systemd/system/carlteck.socket
+    cp ./conf/carlteck.socket /etc/systemd/system/carlteck.socket
 fi
 
 # Check for the service file
 if [ ! "/etc/systemd/system/gunicorn.service" ]
 then
-    cp ./conf/gunicorn.service /etc/systemd/system/gunicorn.service
+    cp ./conf/carlteck.service /etc/systemd/system/carlteck.service
 else
-    sudo rm /etc/systemd/system/gunicorn.service
-    cp ./conf/gunicorn.service /etc/systemd/system/gunicorn.service
+    sudo rm /etc/systemd/system/carlteck.service
+    cp ./conf/carlteck.service /etc/systemd/system/carlteck.service
 fi
 
 # Start / Enable the service
-sudo systemctl enable --now gunicorn.socket
+sudo systemctl enable --now carlteck.socket
 
 # Check for sites-available
 if [ ! -d "/etc/nginx/sites-available" ]
