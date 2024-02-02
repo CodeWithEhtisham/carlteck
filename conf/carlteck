@@ -1,23 +1,14 @@
 server {
-    server_name carlteck.com;
     listen 80;
+    server_name carlteck.com www.carlteck.com;
+
     location = /favicon.ico { access_log off; log_not_found off; }
-    location /assets/ {
+
+    location /static/ {
         root /var/lib/jenkins/workspace/carlteck;
     }
 
-    location / {
-        include proxy_params;
-        proxy_pass http://unix:/run/gunicorn.sock;
-    }
-}
-
-
-server {
-    server_name www.carlteck.com;
-    listen 80;
-    location = /favicon.ico { access_log off; log_not_found off; }
-    location /assets/ {
+    location /media/ {
         root /var/lib/jenkins/workspace/carlteck;
     }
 
@@ -26,4 +17,8 @@ server {
         proxy_pass http://unix:/run/gunicorn.sock;
     }
 
+    error_page 500 502 503 504 /500.html;
+    location = /500.html {
+        root /var/lib/jenkins/workspace/carlteck/templates/;
+    }
 }
