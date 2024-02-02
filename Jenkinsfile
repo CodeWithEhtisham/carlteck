@@ -10,7 +10,7 @@ pipeline {
 
         stage('Virtual environment') {
             steps {
-                sh './virtual_env.sh'
+                sh './conf/virtual_env.sh'
             }
         }
 
@@ -29,13 +29,13 @@ pipeline {
 
         stage('Gunicorn setup') {
             steps {
-                sh './gunicorn.sh'
+                sh './conf/gunicorn.sh'
             }
         }
 
         stage('Nginx setup') {
             steps {
-                sh './nginx.sh'
+                sh './conf/nginx.sh'
             }
         }
 
