@@ -35,6 +35,7 @@ pipeline {
         stage('Gunicorn setup') {
             steps {
                 sh './conf/gunicorn.sh'
+                sh 'sudo systemctl status gunicorn'
             }
         }
 
