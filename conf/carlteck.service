@@ -1,6 +1,6 @@
 [Unit]
 Description=gunicorn daemon
-Requires=gunicorn.socket
+Requires=carlteck.socket
 After=network.target
 
 [Service]
