@@ -27,8 +27,8 @@ pipeline {
 
         stage('Django migrate') {
             steps {
-                sh './manage.py makemigrations'
-                sh './manage.py migrate'
+                sh 'python3.8 ./manage.py makemigrations'
+                sh 'python3.8 ./manage.py migrate'
             }
         }
 
