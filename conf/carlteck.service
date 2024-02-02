@@ -4,7 +4,7 @@ Requires=gunicorn.socket
 After=network.target
 
 [Service]
-User=ubuntu
+User=jenkins
 Group=www-data
 WorkingDirectory=/var/lib/jenkins/workspace/carlteck
 ExecStart=/var/lib/jenkins/workspace/carlteck/env/bin/gunicorn \
