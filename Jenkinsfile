@@ -19,18 +19,12 @@ pipeline {
             }
         }
 
-        stage('Install requirements') {
-            steps {
-                // sh 'source ./env/bin/activate'
-                sh 'python3.8 -m pip install -r ./requirements.txt'
-            }
-        }
-
         stage('Django migrate') {
             steps {
                 // sh 'source ./env/bin/activate'
                 sh 'python3.8 ./manage.py makemigrations'
                 sh 'python3.8 ./manage.py migrate'
+                // sh 'python3.8 ./manage.py collectstatic --noinput'
             }
         }
 
@@ -52,6 +46,7 @@ pipeline {
             steps {
                 sh 'echo $(sudo nginx -t)'
                 sh 'sudo systemctl enable --now nginx'
+                sh 'sudo systemctl restart nginx'
                 sh 'sudo systemctl status nginx'
             }
         }
