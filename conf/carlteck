@@ -1,5 +1,5 @@
 server {
-    listen 80;
+    listen 8001;
     server_name 212.1.214.82 carlteck.com www.carlteck.com;
 
     location = /favicon.ico { access_log off; log_not_found off; }
