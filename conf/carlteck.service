@@ -1,14 +1,13 @@
 [Unit]
-Description=gunicorn daemon
+Description=carlteck gunicorn
 Requires=carlteck.socket
 After=network.target
 
 [Service]
 User=jenkins
-Group=jenkins
+Group=www-data
 WorkingDirectory=/var/lib/jenkins/workspace/carlteck
 ExecStart=/var/lib/jenkins/workspace/carlteck/env/bin/gunicorn \
-          --access-logfile - \
           --workers 3 \
           --bind unix:/run/gunicorn.sock \
           carlteck.wsgi:application
