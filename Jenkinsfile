@@ -24,7 +24,7 @@ pipeline {
                 // sh 'source ./env/bin/activate'
                 sh 'python3.8 ./manage.py makemigrations'
                 sh 'python3.8 ./manage.py migrate'
-                // sh 'python3.8 ./manage.py collectstatic --noinput'
+                sh 'python3.8 ./manage.py collectstatic --noinput'
             }
         }
 
