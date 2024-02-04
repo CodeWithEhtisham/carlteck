@@ -117,7 +117,7 @@ USE_TZ = True
 from posixpath import normpath
 import os
 STATIC_URL = '/static/'
-STATIC_ROOT = normpath(os.path.join(BASE_DIR, 'assets'))
+STATIC_ROOT = normpath(os.path.join(BASE_DIR, 'static_root'))
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
