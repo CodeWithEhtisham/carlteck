@@ -1,5 +1,4 @@
 server {
-    listen 80;
     server_name "carlteck.com" "www.carlteck.com";
 
     location = /favicon.ico { access_log off; log_not_found off; }
@@ -17,4 +16,31 @@ server {
         proxy_pass http://unix:/run/gunicorn.sock;
     }
 
-  }
+  
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/carlteck.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/carlteck.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+
+}
+server {
+    if ($host = www.carlteck.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    if ($host = carlteck.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen 80;
+    server_name "carlteck.com" "www.carlteck.com";
+    return 404; # managed by Certbot
+
+
+
+
+}
