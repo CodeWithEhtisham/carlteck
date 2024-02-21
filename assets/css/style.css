@@ -10820,6 +10820,11 @@ textarea.form-control-lg {
   background-color: #9926f0;
 }
 
+.swiper-container {
+    width: 115%; /* Set the desired width, for example, 100% of the parent container */
+    height: auto; /* Set the desired height */
+}
+
 .heading-line::after {
   content: "";
   width: 2rem;
