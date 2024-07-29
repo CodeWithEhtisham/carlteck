@@ -248,14 +248,10 @@
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 services mt-4 text-end">
           <div class="services__pic">
-            <video width="500" height="400" controls autoplay muted loop id="vid">
-                <source src="{% static 'videos/all_ads.mp4' %}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <script>
-              document.getElementById('vid').play();
-          </script>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/qTA2Vw7XaWI?autoplay=1&loop=1&playlist=qTA2Vw7XaWI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
+        
+        
         
         </div>
       </div>
@@ -862,14 +858,7 @@
   <script src="{% static 'vendors/js/glightbox.min.js' %}"></script>
 
   <script type="text/javascript">
-    const lightbox = GLightbox({
-      'touchNavigation': true,
-      'href': 'https://www.youtube.com/watch?v=J9lS14nM1xg',
-      'type': 'video',
-      'source': 'youtube', //vimeo, youtube or local
-      'width': 900,
-      'autoPlayVideos': 'true',
-    });
+   
 
   </script>
   <script>
